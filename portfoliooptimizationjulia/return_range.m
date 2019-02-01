@@ -27,6 +27,20 @@ cvx_begin
 cvx_end
 
 minv = x2
+%===================================================
+%plot return @minv allocaiton over the year
+r2017 = X * minv
+plot(X);
 
+% =================================================
+%return rrange and vrange and plot the relationship between them
+for i = 1: n
+    range_matrix (i,:) = linspace(maxr(i),minv(i),num);
 end
 
+rrange = r*range_matrix;
+vrange = diag(range_matrix' * Sig * range_matrix); % diagnal one represent the weight*sig*weight'
+
+plot(vrange',rrange)
+end
+%===================================================

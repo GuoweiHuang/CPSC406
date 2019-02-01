@@ -10,4 +10,5 @@ rng(1);
 [r, Sig] = meancov(X);
 %h = portfolio_scatter(r, Sig, num);
 
-range = return_range(r,Sig,num);
+[max_r,min_v] = return_range(r,Sig,num);
+

@@ -9,7 +9,7 @@ Y = zeros(n, num);
 
 for jj = 1:num
     
-    cvx_begin;
+    cvx_begin quiet ;
         variable x1(n);
         minimize (quad_form(x1, Sig));
         subject to ;

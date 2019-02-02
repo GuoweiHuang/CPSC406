@@ -2,7 +2,7 @@ function [rrange] = return_range(r,Sig,num)
 
 n = length(r);
 
-cvx_begin;
+cvx_begin quiet ;
     variable x1(n);
     maximize ( r * x1  );
     subject to ;
@@ -13,7 +13,7 @@ cvx_end;
 
 maxr = x1;
 
-cvx_begin;
+cvx_begin quiet;
     variable x2(n) ;
     minimize (quad_form(x2, Sig));
     subject to ;
@@ -26,6 +26,6 @@ cvx_begin;
         
 cvx_end;
 
-minv = x2
+minv = x2;
 
 rrange = linspace(r*minv, r*maxr, num);

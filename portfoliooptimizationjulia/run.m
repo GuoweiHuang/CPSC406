@@ -16,4 +16,10 @@ h = portfolio_scatter(r, Sig, 1000);
 %[Y,rates,sigs]= efficient_frontier_soln(r',Sig,num)
 figure(h); hold on; plot(sigs, rates, 'ro-'); ylim([0 0.5]); xlim([0 max(sigs)]);
 
-
+f = 0.03;
+r_= [r, f]; % add risk free return
+Sig_ = [Sig , zeros(19,1)] ;
+Sig_ = [Sig_; zeros(1,20)]; % build risk free Sig
+[Y_,rates_,sigs_]=efficient_frontier(r_,Sig_,num); %calculate coresponding efficient frountier
+plot(sigs_,rates_,'go-');
+market_x = market_portfolio(f,r',Sig);

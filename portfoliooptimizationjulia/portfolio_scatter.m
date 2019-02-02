@@ -17,8 +17,8 @@ for ii=1:num
         weight = zeros(size(r));
         weight(randomStocks') = randomAllocation; % the selected stocks have some allocation, unselected stocks will be 0
         %each element of randomstocks must be different, otherwise rewrite
-        expectedReturn = r* weight'
-        expectedRisk = sqrt(weight * Sig * weight') % see the pdf i sent you
+        expectedReturn = r* weight';
+        expectedRisk = sqrt(weight * Sig * weight'); % see the pdf i sent you
        %{
         for i=1:numStocks
             si = randomStocks(i); % ith Stock Index
